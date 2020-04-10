@@ -1,0 +1,27 @@
+{
+    "name": "wptomo\/hane",
+    "description": "A lightweight API data conversion layer use for Laravel framework.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wptomo",
+            "email": "wptomo1106@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": ">=5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wptomo\\Hane\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wptomo\\Hane\\ConverterServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<?php
+
+namespace {{ namespace }};
+
+use Wptomo\Hane\Converter;
+
+class {{ class }} extends Converter
+{
+    public function toArray($model): array
+    {
+        return [
+            //
+        ];
+    }
+}
