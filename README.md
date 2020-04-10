@@ -3,19 +3,19 @@
 <p align="center"> A lightweight API data conversion layer use for Laravel framework.</p>
 
 
-## Installing
+## 安装
 
 ```shell
 $ composer require wptomo/hane -vvv
 ```
 
-## Usage
+## 使用
 
 ```shell
 $ php artisan make:converter UserConverter
 ```
 
-### 基本使用
+### 基本
 
 ```php
 use Wptomo\Hane\Converter;
