@@ -88,7 +88,7 @@ $array = new UserConverter(User::find(1), ['id', 'name'])->convert();
 ### 自定义包裹
 
 ```php
-$array = new UserConverter(User::find(1), ['id', 'name'], 'user')-> convert();
+$array = new UserConverter(User::find(1), ['id', 'name'], 'user')->convert();
 ```
 
 示例：
