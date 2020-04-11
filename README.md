@@ -34,10 +34,10 @@ class UserConverter extends Converter
 }
 
 // Model
-$array = new UserConverter(User::find(1));
+$array = new UserConverter(User::find(1))->convert();
 
 // Collection
-$array = new UserConverter(User::all());
+$array = new UserConverter(User::all())->convert();
 ```
 
 示例（Model）：
@@ -73,7 +73,7 @@ Collection:
 ### 保留部分数据
 
 ```php
-$array = new UserConverter(User::find(1), ['id', 'name']);
+$array = new UserConverter(User::find(1), ['id', 'name'])->convert();
 ```
 
 示例：
@@ -88,7 +88,7 @@ $array = new UserConverter(User::find(1), ['id', 'name']);
 ### 自定义包裹
 
 ```php
-$array = new UserConverter(User::find(1), ['id', 'name'], 'user');
+$array = new UserConverter(User::find(1), ['id', 'name'], 'user')-> convert();
 ```
 
 示例：
@@ -105,7 +105,7 @@ $array = new UserConverter(User::find(1), ['id', 'name'], 'user');
 ### 附加数据
 
 ```php
-$array = new UserConverter(User::all(), ['id', 'name'], 'data', ['pagination' => []]);
+$array = new UserConverter(User::all(), ['id', 'name'], 'data', ['pagination' => []])->convert();
 ```
 
 示例：
