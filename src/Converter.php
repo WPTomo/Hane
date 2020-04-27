@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Wptomo\Hane\Exceptions\MethodNotExistsException;
+use Wptomo\Hane\Exceptions\PropertyNotExistsException;
 
 abstract class Converter
 {
@@ -133,6 +134,23 @@ abstract class Converter
      */
     private function convertCollection(Collection $collection)
     {
+        // If user need collection type of Key-Value, add 'collection_key' param to request url.
+        if ($this->request->has('collection_key')) {
+            $key = $this->request->input('collection_key');
+
+            return $collection->mapWithKeys(function ($item) use ($key) {
+                if (
+                    ! isset($item->{$key})
+                    || $item->{$key} === null
+                    || $item->{$key} === ''
+                ) {
+                    throw new PropertyNotExistsException("The collection key '{$key}' in item is not exists.");
+                }
+
+                return [$item->{$key} => $this->realThing($item)];
+            })->toArray();
+        }
+
         return $collection->map(function ($item) {
             return $this->realThing($item);
         })->toArray();
