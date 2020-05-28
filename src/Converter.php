@@ -147,7 +147,7 @@ abstract class Converter
                     throw new PropertyNotExistsException("The collection key '{$key}' in item is not exists.");
                 }
 
-                return [$item->{$key} => $this->realThing($item)];
+                return [$item->{$key ?: 'zero'} => $this->realThing($item)];
             })->toArray();
         }
 
